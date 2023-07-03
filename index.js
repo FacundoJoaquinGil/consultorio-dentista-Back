@@ -15,6 +15,7 @@ const cors = require("cors");
 
 const pacientes = require ('./routes/pacientes')
 const login = require ('./routes/login')
+const dentista = require ('./routes/dentista')
 // const historialClinico = require ('./routes/historialClinico')
 // const turnos = require ('./routes/turnos')
 // const agenda = require ('./routes/agenda')
@@ -37,3 +38,4 @@ app.listen(8000)
 //     ---- basicamente nuestro servidor web va a estar levantado ----     //
 
 app.use("/pacientes", pacientes)
+app.use("/dentista", dentista)

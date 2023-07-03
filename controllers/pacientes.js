@@ -69,14 +69,7 @@ const editar = (req, res) => {
     edad,
     idHistorialClinico,
   } = req.body;
-  // const nombre = req.body.nombre;
-  // const apellido = req.body.apellido;
-  // const dni = req.body.dni;
-  // const sexo = req.body.sexo;
-  // const domicilio = req.body.domicilio;
-  // const fechaNacimiento = req.body.fechaNacimiento
-  // const edad = req.body.edad
-  // const idHistorialClinico = req.body.idHistorialClinico
+  
 
   db.query(
     `UPDATE pacientes SET nombre = ${nombre},
