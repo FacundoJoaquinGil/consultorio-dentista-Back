@@ -15,10 +15,11 @@ const cors = require("cors");
 
 const pacientes = require ('./routes/pacientes')
 const login = require ('./routes/login')
-// const historialClinico = require ('./routes/historialClinico')
-// const turnos = require ('./routes/turnos')
+const dentista = require ('./routes/dentista')
+const historial = require ('./routes/historial')
+const turno = require ('./routes/turno')
+const join = require ('./routes/join')
 // const agenda = require ('./routes/agenda')
-// const dentista = require ('./routes/dentista')
 
 const app = express();
 
@@ -37,3 +38,8 @@ app.listen(8000)
 //     ---- basicamente nuestro servidor web va a estar levantado ----     //
 
 app.use("/pacientes", pacientes)
+app.use("/dentista", dentista)
+app.use("/historial", historial)
+app.use("/turno", turno)
+app.use("/login", login)
+app.use("/join", join)

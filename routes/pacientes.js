@@ -2,7 +2,7 @@
 
 const { Router } = require("express");
 const router = Router();
-const {mostrar, mostrarUno, registrar, editar, eliminar} = require ("../controllers/pacientes")
+const {mostrar, mostrarUno, registrar, editar, eliminar, } = require ("../controllers/pacientes")
 
 //     ---- Creamos las rutas ----     //
 

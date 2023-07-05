@@ -1,4 +1,4 @@
-const mysql = require("mysql")
+const mysql = require("mysql") //  instalar mysql
 
 //     ---- Creamos la conexion a la db con los respectivos datos ----     //
 

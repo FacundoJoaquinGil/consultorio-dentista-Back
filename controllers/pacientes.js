@@ -58,7 +58,7 @@ const registrar = (req, res) => {
 };
 
 const editar = (req, res) => {
-  const id_Pacientes = req.params.id;
+  const id = req.params.id;
   const {
     nombre,
     apellido,
@@ -79,15 +79,15 @@ const editar = (req, res) => {
   // const idHistorialClinico = req.body.idHistorialClinico
 
   db.query(
-    `UPDATE pacientes SET nombre = ${nombre},
-                          apellido = ${apellido}, 
-                          dni = ${dni}, 
-                          sexo = ${sexo}, 
-                          domicilio = ${domicilio}, 
-                          fechaNacimiento = ${fechaNacimiento}, 
+    `UPDATE pacientes SET nombre = '${nombre}',
+                          apellido = '${apellido}', 
+                          dni = '${dni}', 
+                          sexo = '${sexo}', 
+                          domicilio = '${domicilio}', 
+                          fechaNacimiento = '${fechaNacimiento}', 
                           edad = '${edad}', 
-                          idHistorialClinico = ${idHistorialClinico} 
-                          WHERE id_Pacientes= ${id_Pacientes}`,
+                          idHistorialClinico = '${idHistorialClinico}' 
+                          WHERE id_Pacientes= ${id}`,
 
     //  [nombre, apellido, dni, sexo, domicilio, fechaNacimiento, edad, idHistorialClinico, id_Pacientes],
 
