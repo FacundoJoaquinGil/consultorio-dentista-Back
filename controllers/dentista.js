@@ -10,6 +10,8 @@ const mostrar = (req, res) => {
   });
 };
 
+
+
 const mostrarUno = (req, res) => {
   const { id } = req.params;
 
@@ -34,7 +36,7 @@ const registrar = (req, res) => {
     const turno = req.body.turno;
   
     db.query(
-      "INSERT INTO dentista (nombre, apellido, dni ,matricula, sexo, turno) values(?,?,?,?,?,?)",
+      "INSERT INTO dentista (nombreDent, apellidoDent, dniDent ,matricula, sexo, turno) values(?,?,?,?,?,?)",
       [
         nombre,
         apellido,
@@ -66,9 +68,9 @@ const registrar = (req, res) => {
     
   
     db.query(
-      `UPDATE dentista SET nombre = "${nombre}",
-                            apellido =" ${apellido}", 
-                            dni = "${dni}", 
+      `UPDATE dentista SET nombreDent = "${nombre}",
+                            apellidoDent =" ${apellido}", 
+                            dniDent = "${dni}", 
                             matricula = "${matricula}", 
                             sexo = "${sexo}", 
                             turno = "${turno}"

@@ -19,7 +19,7 @@ const dentista = require ('./routes/dentista')
 const historial = require ('./routes/historial')
 const turno = require ('./routes/turno')
 const join = require ('./routes/join')
-// const agenda = require ('./routes/agenda')
+
 
 const app = express();
 
@@ -33,7 +33,10 @@ app.use(cors())
 //     ---- PUERTOS ----      //
 //  localhost:puerto/ definimos el puerto
 
-app.listen(8000)
+
+app.listen(8000, () => {
+  console.log("escuchando en el puerto",8000);
+});
 
 //     ---- basicamente nuestro servidor web va a estar levantado ----     //
 
@@ -43,3 +46,8 @@ app.use("/historial", historial)
 app.use("/turno", turno)
 app.use("/login", login)
 app.use("/join", join)
+
+
+app.get("/", (req, res) => {
+    res.send("Welcome to Mr Lomo Program 2023<br/> Matias Bordenave Web Dev<br> ");
+});

@@ -1,13 +1,15 @@
 const { Router }= require('express')
 const router = Router();
-const {mostrar, mostrarUno, registrar, editar, eliminar} = require ("../controllers/join")
+const {innerjoin, innerjoin2, innerjoin3} = require ("../controllers/join");
+
 
 //     ---- Creamos las rutas ----     //
 
-router.get("/",mostrar)
-// router.get("/:id",mostrarUno)
-// router.post("/registrar",registrar)
+router.get("/",innerjoin)
+router.get("/join",innerjoin2)
+router.get("/join3",innerjoin3)
 // router.put("/editar/:id",editar)
 // router.delete("/eliminar/:id",eliminar)
+
 
 module.exports=router;

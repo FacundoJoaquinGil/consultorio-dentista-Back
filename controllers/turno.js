@@ -26,14 +26,15 @@ const mostrarUno = (req, res) => {
 };
 
 const registrar = (req, res) => {
-    const {idPaciente, fechaTurno, numOrden} = req.body
+    const {idPaciente, fechaTurno, numOrden, idDentista} = req.body
 
   db.query(
-    "INSERT INTO turnos ( fechaTurno, idPaciente, numOrden) values(?,?,?)",
+    "INSERT INTO turnos ( fechaTurno, idPaciente, numOrden, idDentista) values(?,?,?,?)",
     [
       fechaTurno,
       idPaciente,
-      numOrden
+      numOrden,
+      idDentista
     ],
     (err, result) => {
       if (err) {
@@ -51,13 +52,15 @@ const editar = (req, res) => {
     idPaciente,
     fechaTurno,
     numOrden,
+    idDentista
   } = req.body;
   
 
   db.query(
-    `UPDATE turnos SET id_Turnos = ${idPaciente},
+    `UPDATE turnos SET idPaciente = ${idPaciente},
                           fechaTurno = "${fechaTurno}", 
-                          numOrden = ${numOrden}
+                          numOrden = ${numOrden},
+                          idDentista = ${idDentista}
                           WHERE id_Turnos= ${id}`,
 
 
@@ -71,17 +74,18 @@ const editar = (req, res) => {
   );
 };
 
-const eliminar = (req, res) => {
+const eliminar = (require, response) => {
   
-  const  id = req.params.id;
+  const id = require.params.id;
 
   db.query("DELETE FROM turnos WHERE id_Turnos = "+ id, (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      res.send(result);
+      response.send(result);
     }
   });
 };
+
 
 module.exports = { mostrar, mostrarUno, registrar, editar, eliminar };

@@ -12,7 +12,7 @@ const mostrar = (req, res) => {
 };
 
 const mostrarUno = (req, res) => {
-  const { id } = req.params;
+  const  id  = req.params.id;
 
   db.query(
     `SELECT * FROM login WHERE id_User = ${id}`,
@@ -72,14 +72,18 @@ const login = async (req,res) =>{
 
 const registrar = (req, res) => {
 
-  const usuario = req.body.usuario;
-  const contraseña = req.body.contraseña;
+  // const usuario = req.body.usuario;
+  // const contraseña = req.body.contraseña;
+  // const email = req.body.email
+
+  const { usuario, contraseña, email } = req.body
 
   db.query(
-    "INSERT INTO login (usuario, contraseña) values(?,?)",
+    `CALL crearUsuario(${usuario}, ${contraseña}, ${email} )`,
     [
       usuario,
-      contraseña
+      contraseña,
+      email
     ],
     (err, result) => {
       if (err) {
@@ -100,7 +104,7 @@ const editar = (req, res) => {
 
   db.query(
     `UPDATE login SET usuario = '${usuario}',
-                          contraseña = '${contraseña}'--
+                          contraseña = '${contraseña}'
                           WHERE id_User = ${id_User}`,
     (err, result) => {
       if (err) {
