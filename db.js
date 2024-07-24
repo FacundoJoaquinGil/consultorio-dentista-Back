@@ -5,6 +5,6 @@ const mysql = require("mysql") //  instalar mysql
 exports.db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "hola123",
+    password: "1234",
     database: "dentista"
 })

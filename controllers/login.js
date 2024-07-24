@@ -76,14 +76,13 @@ const registrar = (req, res) => {
   // const contraseña = req.body.contraseña;
   // const email = req.body.email
 
-  const { usuario, contraseña, email } = req.body
+  const { usuario, contraseña} = req.body
 
   db.query(
-    `CALL crearUsuario(${usuario}, ${contraseña}, ${email} )`,
+    `INSERT INTO login (usuario, contraseña) values("${usuario}", "${contraseña}");`,
     [
       usuario,
-      contraseña,
-      email
+      contraseña
     ],
     (err, result) => {
       if (err) {

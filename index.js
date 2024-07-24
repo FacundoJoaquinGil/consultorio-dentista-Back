@@ -49,5 +49,5 @@ app.use("/join", join)
 
 
 app.get("/", (req, res) => {
-    res.send("Welcome to Mr Lomo Program 2023<br/> Matias Bordenave Web Dev<br> ");
+    res.send("Welcome to Consultorio Dentista 2023<br/> Joaquin Gil Web Dev<br> ");
 });
